@@ -1,7 +1,7 @@
-package org.hhraymond.algo;
+package org.hhraymond.algo.string;
 
 /**
- * @author huangzhen@u51.com
+ * @author hhraymond
  * @since 2019-01-08
  */
 public class Manacher {

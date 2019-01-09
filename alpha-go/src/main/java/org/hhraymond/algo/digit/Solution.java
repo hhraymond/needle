@@ -1,11 +1,11 @@
-package org.hhraymond.algo;
+package org.hhraymond.algo.digit;
 
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * 原文：https://blog.csdn.net/guoyuguang0/article/details/50969938
- * @author huangzhen@u51.com
+ * @author hhraymond
  * @since 2019-01-09
  */
 public class Solution {
