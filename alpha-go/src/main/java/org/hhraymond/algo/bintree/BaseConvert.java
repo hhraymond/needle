@@ -1,7 +1,7 @@
 package org.hhraymond.algo.bintree;
 
 /**
- * @author huangzhen@u51.com
+ * @author hhraymond
  * @since 2019-01-14
  */
 public class BaseConvert {
