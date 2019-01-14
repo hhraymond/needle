@@ -59,7 +59,7 @@ public class KubeClient {
                         .withNodeSelector(sele)
                         .addNewContainer()
                         .withName("nxbrain")
-                        .withImage("st-docker.u51-inc.com/python27/captcha-ocr-train:7")
+                        
                         .addNewPort()
                         .withContainerPort(80)
                         .endPort()
