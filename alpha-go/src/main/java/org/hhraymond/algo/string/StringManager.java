@@ -11,6 +11,9 @@ public class StringManager {
     public static void main(String[] args) {
         int i = StringManager.lengthOfLongestSubstring("aabacda");
         System.out.println("lengthOfLongestSubstring: " + i );
+
+        String[] strs = new String[] {"flower","flow","flight"};
+        System.out.println("longestCommonPrefix: " + StringManager.longestCommonPrefix(strs));
     }
 
     /******
@@ -38,6 +41,49 @@ public class StringManager {
             System.out.println("i: " + i + ", j: " + j + ", ans: " + ans + ", map: " + map.toString());
         }
         return ans;
+    }
+
+    /******
+     * 问题：查找字符串数组中的最长公共前缀
+     * https://blog.csdn.net/qq_14927217/article/details/72955791
+     输入: ["flower","flow","flight"]
+     输出: "fl"
+
+     解答思路：
+     1、
+     2、
+     ******/
+    public static String longestCommonPrefix(String[] strs) {
+        // write your code here
+        if(strs.length==0){
+            return "";
+        }
+        int min=Integer.MAX_VALUE;
+        String minStr="";
+        for(int i=0;i<strs.length;i++){
+            if(min>strs[i].length()){
+                minStr=strs[i];
+                min=strs[i].length();
+            }
+        }
+        if(min==0){
+            return "";
+        }
+        for(int i=min;i>=0;i--){
+            String standard=minStr.substring(0, i);
+            int j=0;
+            for(j=0;j<strs.length;j++){
+                if(strs[j].substring(0, i).equals(standard)){
+                    continue;
+                }else{
+                    break;
+                }
+            }
+            if(j==strs.length){
+                return standard;
+            }
+        }
+        return "";
     }
 
 }
