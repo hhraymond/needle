@@ -11,7 +11,15 @@ public class Manacher {
         System.out.println("回文长度: " + str1.length() + ", 回文: " + str1);
     }
 
-
+    /******
+     * 问题：给定一个字符串 s，找到 s 中最长的回文子串
+     * https://segmentfault.com/a/1190000016239464
+     如：babcbabcbaccba
+     回文长度: 9, 回文: abcbabcba
+     解答思路：
+     1、传统思路大概是，遍历每一个字符，以该字符为中心向两边查找。其时间复杂度为O(n2)
+     2、利用前半段已经计算过的回文长度，来辅助、加速后半段的回文长度，达到时间复杂度为O(n)
+     ******/
     public static String longestPalindrome(String s) {
         // 改造字符串，每个字符间添加#。添加头^尾$两个不同的字符用于消除边界判断
         StringBuilder sb = new StringBuilder("^");
@@ -43,9 +51,7 @@ public class Manacher {
                 centerIndex = i;
             }
         }
-
         int beginIndex = (centerIndex - 1 - maxLen) / 2;
-
         return s.substring(beginIndex, beginIndex + maxLen);
     }
 }
