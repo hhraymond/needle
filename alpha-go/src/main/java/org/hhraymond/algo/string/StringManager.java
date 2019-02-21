@@ -12,8 +12,8 @@ public class StringManager {
         int i = StringManager.lengthOfLongestSubstring("aabacda");
         System.out.println("lengthOfLongestSubstring: " + i );
 
-        String[] strs = new String[] {"flower","flow","flight"};
-        System.out.println("longestCommonPrefix: " + StringManager.longestCommonPrefix(strs));
+        String[] strs = new String[] {"flower","flow","flight","flooo"};
+        System.out.println("longestCommonPrefix1: " + StringManager.longestCommonPrefix1(strs));
     }
 
     /******
@@ -50,40 +50,37 @@ public class StringManager {
      输出: "fl"
 
      解答思路：
-     1、
-     2、
+     1、基础解法：以第一个字符串为基准，后面的串逐个比较，不断更新最小的公共前缀
+     2、优化：以最短的串为基准，
      ******/
-    public static String longestCommonPrefix(String[] strs) {
-        // write your code here
+    public static String longestCommonPrefix1(String[] strs) {
+        // check first
         if(strs.length==0){
             return "";
         }
-        int min=Integer.MAX_VALUE;
-        String minStr="";
-        for(int i=0;i<strs.length;i++){
-            if(min>strs[i].length()){
-                minStr=strs[i];
-                min=strs[i].length();
+        int baseLen = strs[0].length();
+        int baseStrIndex = 0;
+        for(int i = 0; i < strs.length; i++) {
+            if (baseLen > strs[i].length()) {
+                baseLen = strs[i].length();
+                baseStrIndex = i;
             }
         }
-        if(min==0){
-            return "";
-        }
-        for(int i=min;i>=0;i--){
-            String standard=minStr.substring(0, i);
-            int j=0;
-            for(j=0;j<strs.length;j++){
-                if(strs[j].substring(0, i).equals(standard)){
-                    continue;
-                }else{
+
+        int maxLen = baseLen;
+        String baseStr = strs[baseStrIndex];
+        for(int i = 0; i < strs.length; i++) {
+            String str = strs[i];
+            int j;
+            for(j = 0; j < maxLen; j++) {
+                if (baseStr.charAt(j) != str.charAt(j)) {
                     break;
                 }
             }
-            if(j==strs.length){
-                return standard;
-            }
+            maxLen = Math.min(j, maxLen);
+            System.out.println("i: " + i + ", j: " + j + ", maxLen: " + maxLen);
         }
-        return "";
-    }
 
+        return baseStr.substring(0, maxLen);
+    }
 }
