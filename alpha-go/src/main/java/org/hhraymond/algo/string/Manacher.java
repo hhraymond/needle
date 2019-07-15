@@ -1,6 +1,7 @@
 package org.hhraymond.algo.string;
 
 /**
+ * 马拉车算法
  * @author hhraymond
  * @since 2019-01-08
  */
