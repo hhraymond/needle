@@ -6,6 +6,19 @@ package org.hhraymond.algo.bintree;
  */
 public class BinaryTreeNode {
     public Object data;
-    public BinaryTreeNode rightNode;
     public BinaryTreeNode leftNode;
+    public BinaryTreeNode rightNode;
+
+    public BinaryTreeNode(Object data, BinaryTreeNode left, BinaryTreeNode right) {
+        this.data = data;
+        this.leftNode = left;
+        this.rightNode = right;
+
+    }
+
+    public BinaryTreeNode(Object data) {
+        this.data = data;
+        this.leftNode = null;
+        this.rightNode = null;
+    }
 }

@@ -17,9 +17,6 @@ public class Solution {
         int j = Solution.getMinuteMin(x);
         System.out.println("无序数组中查找最长连续序列: " + i);
         System.out.println("无序数组中找到两个元素使得相差最小值 : " + j);
-
-        int[] y = {-1, 0, 1, 2, -1, -4};
-        System.out.println("三个元素和为0 : " + Solution.threeSum(y));
     }
 
     /******
@@ -82,38 +79,6 @@ public class Solution {
             }
         }
         return minuteMin;
-    }
-
-    /*******
-     * 问题：给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。
-     例如, 给定数组 nums = [-1, 0, 1, 2, -1, -4]，
-
-     满足要求的三元组集合为：
-     [
-     [-1, 0, 1],
-     [-1, -1, 2]
-     ]
-     解答思路：
-     1、
-     2、。
-     ******/
-    public static List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> sumZero = new ArrayList<>();
-        for (int i = 0; i < nums.length -2; i++) {
-            for (int j = i + 1; j < nums.length - 1; j++) {
-                for (int k = j + 1; k < nums.length; k ++) {
-                    if (nums[i] + nums[j] + nums[k] == 0) {
-                        List<Integer> zeroList = new ArrayList<>();
-                        zeroList.add(nums[i]);
-                        zeroList.add(nums[j]);
-                        zeroList.add(nums[k]);
-                        sumZero.add(zeroList);
-                        System.out.println("i: " + i + ", j: " + j + ", k:" + k);
-                    }
-                }
-            }
-        }
-        return sumZero;
     }
 
 }
