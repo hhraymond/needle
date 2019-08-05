@@ -1,5 +1,8 @@
 package org.hhraymond.algo.bintree;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  *         10
  *        /  \
@@ -40,6 +43,9 @@ public class BaseConvert {
         midRootDumpTree(node10);
         System.out.println("====deep======");
         System.out.println("deep: " + treeDeep(node10));
+        System.out.println("====levelOrder======");
+        levelOrder(node10);
+
         System.out.println("====convert======");
         BinaryTreeNode nodeC = null;
         BinaryTreeNode nodeR = baseconvert(node10, nodeC);
@@ -74,6 +80,23 @@ public class BaseConvert {
             midRootDumpTree(node.leftNode);
             System.out.println("data: " + node.data);
             midRootDumpTree(node.rightNode);
+        }
+    }
+
+    public static void levelOrder(BinaryTreeNode root){
+        if(root==null) return;
+        LinkedList<BinaryTreeNode> list = new LinkedList<>();
+        list.add(root);
+        BinaryTreeNode currentNode;
+        while(!list.isEmpty()){
+            currentNode=list.poll();
+            System.out.println("levelOrder: " + currentNode.data);
+            if(currentNode.leftNode!=null){
+                list.add(currentNode.leftNode);
+            }
+            if(currentNode.rightNode!=null){
+                list.add(currentNode.rightNode);
+            }
         }
     }
 
