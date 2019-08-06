@@ -1,5 +1,6 @@
 package org.hhraymond.algo.bintree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -46,6 +47,11 @@ public class BaseConvert {
         System.out.println("====levelOrder======");
         levelOrder(node10);
 
+        List<List<Integer>> list = levelOrder2(node10);
+        System.out.println("====levelOrder2======");
+        dumpArray(list);
+
+
         System.out.println("====convert======");
         BinaryTreeNode nodeC = null;
         BinaryTreeNode nodeR = baseconvert(node10, nodeC);
@@ -53,14 +59,23 @@ public class BaseConvert {
     }
 
     public static void dumpList(BinaryTreeNode node) {
-        if(node != null) {
+        if (node != null) {
             System.out.println("list: " + node.data);
             dumpList(node.leftNode);
         }
     }
 
+    public static void dumpArray(List<List<Integer>> list) {
+        list.forEach(i -> {
+            i.forEach( j -> {
+                System.out.println("list: " + j);
+            });
+            System.out.println("==");
+        });
+    }
+
     public static void preRootDumpTree(BinaryTreeNode node) {
-        if(node != null) {
+        if (node != null) {
             System.out.println("data: " + node.data);
             preRootDumpTree(node.leftNode);
             preRootDumpTree(node.rightNode);
@@ -68,7 +83,7 @@ public class BaseConvert {
     }
 
     public static void postRootDumpTree(BinaryTreeNode node) {
-        if(node != null) {
+        if (node != null) {
             postRootDumpTree(node.leftNode);
             postRootDumpTree(node.rightNode);
             System.out.println("data: " + node.data);
@@ -76,28 +91,51 @@ public class BaseConvert {
     }
 
     public static void midRootDumpTree(BinaryTreeNode node) {
-        if(node != null) {
+        if (node != null) {
             midRootDumpTree(node.leftNode);
             System.out.println("data: " + node.data);
             midRootDumpTree(node.rightNode);
         }
     }
 
+    // 链表，非递归方式
     public static void levelOrder(BinaryTreeNode root){
-        if(root==null) return;
+        if (root == null) return;
         LinkedList<BinaryTreeNode> list = new LinkedList<>();
         list.add(root);
         BinaryTreeNode currentNode;
-        while(!list.isEmpty()){
+        while (!list.isEmpty()){
             currentNode=list.poll();
             System.out.println("levelOrder: " + currentNode.data);
-            if(currentNode.leftNode!=null){
+            if (currentNode.leftNode != null){
                 list.add(currentNode.leftNode);
             }
-            if(currentNode.rightNode!=null){
+            if (currentNode.rightNode != null){
                 list.add(currentNode.rightNode);
             }
         }
+    }
+
+    // 二叉树层次遍历，按层次返回list
+    // 思路：层次遍历，前序方式递归
+    public static List<List<Integer>> levelOrder2(BinaryTreeNode root) {
+        List<List<Integer>> levelList = new ArrayList<>();
+        func(root,0,levelList);
+        return levelList;
+    }
+    public static void func(BinaryTreeNode<Integer> node, int level, List<List<Integer>> levelList){
+        if (node == null){
+            return;
+        }
+        if (levelList.size() <= level){
+            List<Integer> valList = new ArrayList<>();
+            valList.add(node.data);
+            levelList.add(valList);
+        } else {
+            levelList.get(level).add(node.data);
+        }
+        func(node.leftNode,level+1, levelList);
+        func(node.rightNode,level+1, levelList);
     }
 
     public static int treeDeep(BinaryTreeNode node) {
