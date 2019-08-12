@@ -76,9 +76,8 @@ public class HeapSort {
         }
         //System.out.println("list: " + list.length + ", newList: " + newList.length);
         int hole = list.length;
-        System.out.println("newList hole: " + newList[hole] + ", hole/2: " + newList[hole/2]);
         for(; hole > 1 && x < newList[hole / 2]; hole /= 2 ) {
-            System.out.println("newList hole: " + newList[hole] + ", hole/2: " + newList[hole/2]);
+            //System.out.println("newList hole: " + newList[hole] + ", hole/2: " + newList[hole/2]);
             newList[hole] = newList[hole / 2];
         }
         newList[hole] = x;

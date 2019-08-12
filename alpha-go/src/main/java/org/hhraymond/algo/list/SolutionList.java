@@ -18,14 +18,18 @@ public class SolutionList {
         node3.next = node4;
         node4.next = node5;
 
+        System.out.println("操作前:");
         ListNode node = node1;
         while (node.next != null) {
             System.out.println(node.val + "->");
             node = node.next;
         }
         System.out.println(node.val + "->");
-        SolutionList.removeNthFromEnd(node1, 2);
 
+        reverseBetween(node1, 2, 4);
+        //removeNthFromEnd(node1, 2);
+
+        System.out.println("操作后:");
         node = node1;
         while (node.next != null) {
             System.out.println(node.val + "->");

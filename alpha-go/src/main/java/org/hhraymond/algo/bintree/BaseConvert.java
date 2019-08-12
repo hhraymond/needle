@@ -11,10 +11,10 @@ import java.util.List;
  *      / \  / \
  *     4  8 12 16
  *
- * 前序：根结点 ---> 左子树 ---> 右子树
+ * 前序(先根)：根结点 ---> 左子树 ---> 右子树
  * 10 - 6 - 4 - 8 - 14 - 12 - 16
  *
- * 后序：左子树 ---> 右子树 ---> 根结点
+ * 后序(后根)：左子树 ---> 右子树 ---> 根结点
  * 4 - 8 - 6 - 12 - 16 - 14 - 10
  *
  * 中序：左子树 ---> 根结点 ---> 右子树
@@ -138,6 +138,7 @@ public class BaseConvert {
         func(node.rightNode,level+1, levelList);
     }
 
+    // 后序。后根
     public static int treeDeep(BinaryTreeNode node) {
         if(node == null) {
             return 0;
