@@ -30,6 +30,9 @@ public class HeapSort {
     }
 
     /**
+     * 存储为数组，一棵完全二叉树、堆顶是“最大”或“最小”、基本操作包括insert(上滤)和deleteMin(下滤)
+     * 数组中位置i(从0开始)，其左儿子为2i+1，右儿子为2i+2，父位置则为i/2
+     *
      * 堆排序
      */
     public static void headSort(int[] list) {
