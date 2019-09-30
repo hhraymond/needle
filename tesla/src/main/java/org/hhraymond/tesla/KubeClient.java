@@ -26,8 +26,12 @@ public class KubeClient {
     private static final Logger logger = LoggerFactory.getLogger(KubeClient.class);
 
     public static void main(String[] args) throws InterruptedException {
+
+        String token = "eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJueGJyYWluIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6Im54YnJhaW4tYWRtaW4tdG9rZW4td2x0OGwiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoibnhicmFpbi1hZG1pbiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjIxNmI4MzJiLTE0ODYtMTFlOS04ZGYyLTAyMDAyMWYxMDAyYyIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpueGJyYWluOm54YnJhaW4tYWRtaW4ifQ.O3-URUWRAMYZVL6jIeraktyC6o5hzjTq_z2rQ8S26oCt_CZWnOUwAhzOc8LiAcjC6XgwUxwaP7ZLtr8pjnU82pxcxZfEQogavNQlQ8PRkPzEg_CVcL1NtctWn_mnAaHglzC-aU8V7Lz-gSfrUahpeDL9wN9c166nNBd1mmuWAlm8qumiAUBO8fo4qDeVc3b-W3_ZS9puvO7ceIxA9RW-_qXDnThpAA39ZuoT5fdz3-fpXS6qS_eUyVjkHXzYtbJOg2_ap-NBSl_QZOtfE5zWhLD8drQxUJ2832u4A32o5XJOsFKkJEbn2SBNwoQ36q_FscDYIxePSP9EioBkfgC7KA";
+        String image = "st-docker.u51-inc.com/python27/captcha-ocr-train:7";
+
         Config config = new ConfigBuilder().withMasterUrl("https://10.247.42.254:443")
-                .withOauthToken("")
+                .withOauthToken(token)
                 .withApiVersion("V1").withTrustCerts(true).build();
         KubernetesClient client = new DefaultKubernetesClient(config);
 
@@ -59,7 +63,7 @@ public class KubeClient {
                         .withNodeSelector(sele)
                         .addNewContainer()
                         .withName("nxbrain")
-                        .withImage("")
+                        .withImage(image)
                         .addNewPort()
                         .withContainerPort(80)
                         .endPort()
