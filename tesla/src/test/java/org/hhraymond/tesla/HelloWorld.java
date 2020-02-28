@@ -11,7 +11,7 @@ public class HelloWorld {
     public void setCount(int count) { this.count = count; }
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println("Hello world!");
     }
 
 }

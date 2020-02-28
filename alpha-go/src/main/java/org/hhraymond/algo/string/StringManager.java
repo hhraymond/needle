@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author huangzhen@u51.com
+ * @author hhraymond
  * @since 2019-01-12
  */
 public class StringManager {

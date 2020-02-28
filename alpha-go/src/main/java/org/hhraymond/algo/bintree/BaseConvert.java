@@ -162,7 +162,7 @@ public class BaseConvert {
         }
         BinaryTreeNode current = root;
         if (current.leftNode != null) {
-            lastNode=baseconvert(current.leftNode, lastNode);
+            lastNode = baseconvert(current.leftNode, lastNode);
         }
         current.leftNode = lastNode;
         if (lastNode != null) {
@@ -170,7 +170,7 @@ public class BaseConvert {
         }
         lastNode = current;
         if (current.rightNode != null) {
-            lastNode=baseconvert(current.rightNode, lastNode);
+            lastNode = baseconvert(current.rightNode, lastNode);
         }
         return lastNode;
     }
