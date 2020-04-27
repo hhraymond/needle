@@ -6,12 +6,9 @@
 
 package org.hhraymond.algo.matrix;
 
-import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  *
@@ -19,7 +16,7 @@ import java.util.Map;
  *  * 如：输入[45, 9 ,7]，输出字符串 “9745”
  *  * 另外，输入数组可以有重复的数字
  *
- * @author huangzhen10408
+ * @author hhraymond
  * @date 2020/4/27
  */
 public class FindMaxNum {
